@@ -2,9 +2,7 @@ package com.Student;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -28,8 +26,7 @@ public class Main {
             }
             break;
         }
-        System.out.println("String = " + st + "\n key = " + key);
-
+        System.out.println("String = " + st + "\nkey = " + key + "\r\n");
         decrypt(encrypt(st, key),key);
 
     }
@@ -45,8 +42,9 @@ public class Main {
         }
 
         for(int i = 0, j = 0; i < st.length(); i++,j++){
-            if (j >= ASK_KEY.size()) j = 0;
-            FINAL += (char)((Integer.valueOf(st.charAt(i)) + ASK_KEY.get(j)));
+            if (j >= ASK_KEY.size() || j >= st.length()) j = 0;
+            //Main crypto function
+            FINAL += (char)( Integer.valueOf(st.charAt(i)) * (i + j + 1) + ( ASK_KEY.get(j)));
         }
 
         System.out.println("encrypt out = " + FINAL);
@@ -59,16 +57,16 @@ public class Main {
     private static String decrypt(String st, String key){
 
         String FINAL = "";
-        List<Integer> ASK_KEY = new LinkedList<>();
+        List<Integer> ASCII_KEY = new LinkedList<>();
 
         for (int i = 0; i < key.length(); i++) {
-            ASK_KEY.add(Integer.valueOf(key.charAt(i)));
-            //System.out.println(" Index "+ i + "\n" + "ASK " + ASK_KEY.get(i));
+            ASCII_KEY.add(Integer.valueOf(key.charAt(i)));
+            //System.out.println(" Index "+ i + "\n" + "ASK " + ASCII_KEY.get(i));
         }
 
         for(int i = 0, j = 0; i < st.length(); i++,j++){
-            if (j >= ASK_KEY.size()) j = 0;
-            FINAL += (char)((Integer.valueOf(st.charAt(i)) - ASK_KEY.get(j)));
+            if (j >= ASCII_KEY.size() || j >= st.length()) j = 0;
+            FINAL += (char)( (Integer.valueOf(st.charAt(i)) - ASCII_KEY.get(j)) / (i + j + 1));
         }
 
             System.out.println("decrypt out = " + FINAL);
