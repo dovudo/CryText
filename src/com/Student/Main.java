@@ -26,7 +26,7 @@ public class Main {
             }
             break;
         }
-        System.out.println("String = " + st + "\nkey = " + key + "\r\n");
+        System.out.println("S tring = " + st + "\nkey = " + key + "\r\n");
         decrypt(encrypt(st, key),key);
 
     }
@@ -44,7 +44,7 @@ public class Main {
         for(int i = 0, j = 0; i < st.length(); i++,j++){
             if (j >= ASK_KEY.size() || j >= st.length()) j = 0;
             //Main crypto function
-            FINAL += (char)( Integer.valueOf(st.charAt(i)) * (i + j + 1) + ( ASK_KEY.get(j)));
+            FINAL += (char)( Integer.valueOf(st.charAt(i)) + ((i + j + 1) / key.length()) + ( ASK_KEY.get(j)));
         }
 
         System.out.println("encrypt out = " + FINAL);
@@ -66,7 +66,7 @@ public class Main {
 
         for(int i = 0, j = 0; i < st.length(); i++,j++){
             if (j >= ASCII_KEY.size() || j >= st.length()) j = 0;
-            FINAL += (char)( (Integer.valueOf(st.charAt(i)) - ASCII_KEY.get(j)) / (i + j + 1));
+            FINAL += (char)( (Integer.valueOf(st.charAt(i)) - ASCII_KEY.get(j)) - ((i + j + 1) / key.length()));
         }
 
             System.out.println("decrypt out = " + FINAL);
