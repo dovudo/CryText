@@ -40,7 +40,6 @@ public class CryptEngine {
         }
 
         System.out.println("decrypt out = " + FINAL);
-
         return FINAL.toString();
     }
 
@@ -53,24 +52,6 @@ public class CryptEngine {
             //System.out.println(" Index "+ i + "\n" + "ASK " + ASCII_KEY.get(i));
         }
         return ASCII_KEY;
-    }
-
-    public static String getData(String viewText){
-
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        String string = "";
-        System.out.println(viewText + "\r\n");
-
-        while (true) {
-            try {
-                string = bf.readLine();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            break;
-        }
-        return string;
     }
 
 }

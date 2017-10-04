@@ -5,7 +5,8 @@ package com.Student;
  */
 
 
-public interface endecrypt {
+public interface Endcrypt {
+
      String encrypt(String Text, String KEY);
      String decrypt(String Text, String KEY);
 }
