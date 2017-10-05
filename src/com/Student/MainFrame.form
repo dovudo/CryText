@@ -1,54 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.Student.MainFrame">
-  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="3" column-count="13" same-size-horizontally="true" same-size-vertically="true" hgap="-1" vgap="-1">
+  <grid id="27dc6" binding="MainPanel" layout-manager="GridLayoutManager" row-count="6" column-count="2" same-size-horizontally="true" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="976" height="231"/>
+      <xy x="20" y="20" width="696" height="409"/>
     </constraints>
     <properties/>
     <border type="none"/>
     <children>
-      <component id="90380" class="javax.swing.JTextField" binding="IN">
+      <component id="d40f4" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="13" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-            <preferred-size width="150" height="43"/>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="341" height="17"/>
           </grid>
         </constraints>
         <properties>
-          <text value="Input Text here"/>
+          <text value="Enter Key"/>
         </properties>
       </component>
-      <component id="b142f" class="javax.swing.JLabel" binding="OUT">
+      <component id="8ab32" class="javax.swing.JTextField" binding="IN_KEY">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="12" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="267" height="17"/>
+          <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
         <properties>
-          <text value="OutData"/>
+          <text value=""/>
         </properties>
       </component>
-      <component id="ae397" class="javax.swing.JRadioButton" binding="encryptButton">
+      <component id="c00c8" class="javax.swing.JTextArea" binding="IN_OUT_TEXT">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="270" height="21"/>
+          <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="4" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="50"/>
           </grid>
         </constraints>
         <properties>
-          <hideActionText value="false"/>
+          <toolTipText value="Input text to crypt"/>
+        </properties>
+      </component>
+      <component id="177c0" class="javax.swing.JRadioButton" binding="encryptRadioButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="341" height="28"/>
+          </grid>
+        </constraints>
+        <properties>
           <selected value="true"/>
           <text value="encrypt"/>
         </properties>
       </component>
-      <component id="1d5f" class="javax.swing.JRadioButton" binding="decryptButton">
+      <component id="9f390" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false">
-            <preferred-size width="143" height="21"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+            <preferred-size width="341" height="17"/>
           </grid>
         </constraints>
         <properties>
-          <selected value="false"/>
+          <text value="Enter Text"/>
+        </properties>
+      </component>
+      <component id="80f91" class="javax.swing.JRadioButton" binding="decryptRadioButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
           <text value="decrypt"/>
+        </properties>
+      </component>
+      <component id="a650d" class="javax.swing.JButton" binding="openFileButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Open File..."/>
+          <toolTipText value="Set encrypt/decrypt file"/>
+        </properties>
+      </component>
+      <component id="be462" class="javax.swing.JButton" binding="goButton" default-binding="true">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Go!"/>
+        </properties>
+      </component>
+      <component id="57709" class="javax.swing.JButton" binding="clearButton">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Clear"/>
         </properties>
       </component>
     </children>
