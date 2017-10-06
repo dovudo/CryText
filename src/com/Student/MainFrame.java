@@ -1,15 +1,18 @@
 package com.Student;
 
-import javafx.application.Application;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
-
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.io.File;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static com.Student.CryptEngine.*;
 
@@ -23,10 +26,11 @@ public class MainFrame extends JFrame {
     private JButton openFileButton;
     private JTextField IN_KEY;
     private File file;
+    private final FileNameExtensionFilter FileFilter = new FileNameExtensionFilter("Text","txt");
 
     public MainFrame() {
 
-        goButton.addActionListener(e -> endcrypt(IN_OUT_TEXT.toString()));
+        goButton.addActionListener(e -> endcrypt(IN_OUT_TEXT.getText()));
         clearButton.addActionListener(e -> IN_OUT_TEXT.setText(""));
 
         IN_OUT_TEXT.addKeyListener(new KeyAdapter() {
@@ -46,10 +50,20 @@ public class MainFrame extends JFrame {
             decryptRadioButton.setSelected(true);
             encryptRadioButton.setSelected(false);
         });
-        openFileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        openFileButton.addActionListener(e -> {
+            JFileChooser fc = new JFileChooser();
+            fc.setCurrentDirectory(new File(System.getProperty("user.home")));
+            fc.setFileFilter(FileFilter);
+            int result = fc.showOpenDialog(openFileButton);
+            if (result == JFileChooser.APPROVE_OPTION) {
+                file = fc.getSelectedFile();
+                try (Stream<String> stream = Files.lines(Paths.get(file.toString()))){
+                    IN_OUT_TEXT.setText(stream.collect(Collectors.joining("\n")));
+                } catch (FileNotFoundException e1) {
+                    e1.printStackTrace();
+                } catch (IOException e1) {
 
+                }
             }
         });
     }
@@ -57,13 +71,28 @@ public class MainFrame extends JFrame {
 
     private void endcrypt(String e) {
         //future
+        if (Objects.equals(IN_KEY.getText(), "")) IN_KEY.setText("default");
         if (encryptRadioButton.isSelected()) IN_OUT_TEXT.setText(encrypt(e, IN_KEY.getText()));
         else IN_OUT_TEXT.setText(decrypt(e, IN_KEY.getText()));
+
     }
 
-    //Future перегрузку класса сделать
     public void start() {
 
+        //set system style
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
+        MainPanel.setSize(600,400);
         this.getContentPane().add(MainPanel);
         this.pack();
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -73,14 +102,4 @@ public class MainFrame extends JFrame {
 
 }
 
-class forStage extends Application {
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        final FileChooser fc = new FileChooser();
-        final FileChooser.ExtensionFilter fcFilters = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
-        primaryStage.setTitle("Select a file");
-        
-    }
-}
 
