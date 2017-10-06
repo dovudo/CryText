@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CryptoFake.iml" filepath="$PROJECT_DIR$/CryptoFake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CryText.iml" filepath="$PROJECT_DIR$/CryText.iml" />
     </modules>
   </component>
 </project>

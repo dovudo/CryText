@@ -12,27 +12,29 @@ public class Support {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         String string = "";
         System.out.println(viewText + "\r\n");
-
-        while (true) {
-            try {
-                string = bf.readLine();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            break;
+        try {
+        string = bf.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return string;
     }
 
-    public static void startGUI(){
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                MainFrame mf = new MainFrame();
-                mf.start();
+    static void startGUI(){
+        SwingUtilities.invokeLater(() -> {
+            //set system style
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("com.sun.java.swing.plaf.gtk.GTKLookAndFeel".equals(info.getClassName())) {
+                    try {
+                        UIManager.setLookAndFeel(info.getClassName());
+                    } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                }
             }
+            MainFrame mn = new MainFrame();
+            mn.start();
         });
     }
-
 }
