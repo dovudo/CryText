@@ -2,8 +2,11 @@ package com.Student;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -14,6 +17,7 @@ import java.util.stream.Stream;
 import static com.Student.CryptEngine.*;
 
 public class MainFrame extends JFrame {
+
     private JRadioButton encryptRadioButton;
     private JRadioButton decryptRadioButton;
     private JTextArea IN_OUT_TEXT;
@@ -25,6 +29,7 @@ public class MainFrame extends JFrame {
     private JButton saveFileButton;
     private File file;
     private JFileChooser fc = new JFileChooser();
+    private final ImageIcon imageIcon = new ImageIcon("src/icon/bitmap.png");
 
     MainFrame() {
 
@@ -95,6 +100,8 @@ public class MainFrame extends JFrame {
     }
 
     void start() {
+        this.setTitle("CryText");
+        this.setIconImage(imageIcon.getImage());
         this.getContentPane().add(MainPanel);
         this.pack();
         this.setLocationRelativeTo(null);

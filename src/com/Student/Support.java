@@ -33,6 +33,7 @@ public class Support {
                     break;
                 }
             }
+
             MainFrame mn = new MainFrame();
             mn.start();
         });
