@@ -29,7 +29,7 @@ public class MainFrame extends JFrame {
     private JButton saveFileButton;
     private File file;
     private JFileChooser fc = new JFileChooser();
-    private final ImageIcon imageIcon = new ImageIcon("src/icon/bitmap.png");
+    private final ImageIcon imageIcon = new ImageIcon("src/img/icon.png");
 
     MainFrame() {
 

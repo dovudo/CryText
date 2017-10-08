@@ -75,6 +75,7 @@
             <properties>
               <lineWrap value="true"/>
               <text value=""/>
+              <toolTipText value="Press &quot;Enter&quot; to start"/>
               <wrapStyleWord value="true"/>
             </properties>
           </component>

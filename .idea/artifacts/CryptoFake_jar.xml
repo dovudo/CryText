@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="CryptoFake:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/CryptoFake_jar</output-path>
-    <root id="archive" name="CryptoFake.jar">
-      <element id="module-output" name="CryptoFake" />
-    </root>
-  </artifact>
-</component>
