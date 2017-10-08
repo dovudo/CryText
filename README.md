@@ -25,7 +25,7 @@ If haven't jre, download
 > http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html
 - Download CryText
 Git:
-> git clone https://github.com/dovudo/DwScript <br />
+> git clone https://github.com/dovudo/CryText <br />
 
 or
 
@@ -33,7 +33,7 @@ Press button 'Clone or download' on this page
 
 or
 
-> wget https://github.com/dovudo/CryText/crytext.jar
+> wget https://github.com/dovudo/CryText/blob/master/crytext.jar
 
 ### It supports
 ```
